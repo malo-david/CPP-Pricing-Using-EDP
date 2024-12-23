@@ -95,8 +95,14 @@ private:
             N = 100;
             break;;
         }
+
+        // Définir des bornes dynamiques pour dt et M
+        // Nécessaire dans des cas extrêmes où la volatilité est très faible et où la saturation de la condition de stabilité mène à des valeurs très petites pour M.
+        const int M_target = 100;  // Minimum pour le nombre de pas temporels
+        double dt_max = params.T / M_target;
+        
         dS = Smax / N; 
-        dt = (dS * dS) / (params.sigma * params.sigma * Smax * Smax); // Sature la condition de stabilité
+        dt = std::min((dS * dS) / (params.sigma * params.sigma * Smax * Smax),dt_max); // Sature la condition de stabilité
         M = static_cast<int>(params.T / dt) + 1;
         std::cout << "Pas temporel calculé (dt) : " << dt << ", Nombre de pas temporels (M) : " << M << "\n";
     }
