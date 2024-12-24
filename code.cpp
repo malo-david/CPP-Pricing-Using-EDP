@@ -132,7 +132,7 @@ private:
                 U[j] = a * U_old[j - 1] + b * U_old[j] + c * U_old[j + 1];  // Calcul du nouveau vecteur prix U par la formule de récurrence
             }
 
-            // Conditions aux limites (t=0)
+            // Conditions aux limites
             U[0] = 0.0; // j=0 : S=0, pour un call : U=0
 
             // t=0, j=N : S=Smax, condition limite : U(Smax,t)
