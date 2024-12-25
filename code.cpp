@@ -94,14 +94,6 @@ private:
             if (params.T <= 0) {
                 std::cerr << "Erreur : T doit être strictement positif.\n";
             }} while (params.T <= 0);
-        std::cout << "Prix Strike (K) : ";
-        std::cin >> params.K;
-        std::cout << "Taux sans risque (r) : ";
-        std::cin >> params.r;
-        std::cout << "Volatilité (sigma) : ";
-        std::cin >> params.sigma;
-        std::cout << "Maturité (T) : ";
-        std::cin >> params.T;
         Smax = 4.0 * params.K;
     }
 
