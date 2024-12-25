@@ -75,25 +75,25 @@ private:
         }} while (params.K <= 0);
 
         do {
-            std::cout << "Taux sans risque (r) : ";
-            std::cin >> params.r;
-            if (params.r < 0 || params.r > 1) {
-                std::cerr << "Erreur : r doit être entre 0 et 1. Exemple : 5% = 0.05.\n";
-            }} while (params.r < 0 || params.r > 1);
+        std::cout << "Taux sans risque (r) : ";
+        std::cin >> params.r;
+        if (params.r < 0 || params.r > 1) {
+            std::cerr << "Erreur : r doit être entre 0 et 1. Exemple : 5% = 0.05.\n";
+        }} while (params.r < 0 || params.r > 1);
         
         do {
-            std::cout << "Volatilité (sigma) : ";
-            std::cin >> params.sigma;
-            if (params.sigma <= 0 || params.sigma > 1) {
-                std::cerr << "Erreur : sigma doit être strictement positif et inférieur à 1.\n";
-            }} while (params.sigma <= 0 || params.sigma > 1);
+        std::cout << "Volatilité (sigma) : ";
+        std::cin >> params.sigma;
+        if (params.sigma <= 0 || params.sigma > 1) {
+            std::cerr << "Erreur : sigma doit être strictement positif et inférieur à 1.\n";
+        }} while (params.sigma <= 0 || params.sigma > 1);
         
         do {
-            std::cout << "Maturité (T) : ";
-            std::cin >> params.T;
-            if (params.T <= 0) {
-                std::cerr << "Erreur : T doit être strictement positif.\n";
-            }} while (params.T <= 0);
+        std::cout << "Maturité (T) : ";
+        std::cin >> params.T;
+        if (params.T <= 0) {
+            std::cerr << "Erreur : T doit être strictement positif.\n";
+        }} while (params.T <= 0);
         Smax = 4.0 * params.K;
     }
 
