@@ -53,10 +53,47 @@ private:
 
     void inputParameters() {
         std::cout << "Entrez les paramètres de l'option :\n";
+        do {
         std::cout << "Type d'option (0 pour put, 1 pour call) : ";
         std::cin >> params.type;
+        if (params.type != 0 && params.type != 1) {
+            std::cerr << "Erreur : Entrez 0 ou 1.\n";
+        }} while (params.type != 0 && params.type != 1);
+
+        do {
         std::cout << "Prix de l'actif sous-jacent initial (S0) : ";
         std::cin >> params.S0;
+        if (params.S0 <= 0) {
+            std::cerr << "Erreur : S0 doit être strictement positif.\n";
+        }} while (params.S0 <= 0);
+
+        do {
+        std::cout << "Prix Strike (K) : ";
+        std::cin >> params.K;
+        if (params.K <= 0) {
+            std::cerr << "Erreur : K doit être strictement positif.\n";
+        }} while (params.K <= 0);
+
+        do {
+            std::cout << "Taux sans risque (r) : ";
+            std::cin >> params.r;
+            if (params.r < 0 || params.r > 1) {
+                std::cerr << "Erreur : r doit être entre 0 et 1. Exemple : 5% = 0.05.\n";
+            }} while (params.r < 0 || params.r > 1);
+        
+        do {
+            std::cout << "Volatilité (sigma) : ";
+            std::cin >> params.sigma;
+            if (params.sigma <= 0 || params.sigma > 1) {
+                std::cerr << "Erreur : sigma doit être strictement positif et inférieur à 1.\n";
+            }} while (params.sigma <= 0 || params.sigma > 1);
+        
+        do {
+            std::cout << "Maturité (T) : ";
+            std::cin >> params.T;
+            if (params.T <= 0) {
+                std::cerr << "Erreur : T doit être strictement positif.\n";
+            }} while (params.T <= 0);
         std::cout << "Prix Strike (K) : ";
         std::cin >> params.K;
         std::cout << "Taux sans risque (r) : ";
